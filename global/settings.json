@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5",
+    "CLAUDE_CODE_HIDE_ACCOUNT_INFO": "1",
+    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Bash(git *)",
+      "Bash(dotnet *)",
+      "Bash(npm *)",
+      "Bash(ng *)",
+      "Bash(pnpm *)",
+      "Bash(docker *)",
+      "PowerShell(git *)",
+      "PowerShell(dotnet *)",
+      "PowerShell(npm *)",
+      "PowerShell(ng *)",
+      "PowerShell(pnpm *)",
+      "PowerShell(docker *)",
+      "PowerShell(Get-ChildItem *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(rm -fr *)",
+      "Bash(rm -r *)",
+      "PowerShell(Remove-Item *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(git push * --force*)",
+      "Bash(git push * -f)",
+      "PowerShell(git push --force*)",
+      "PowerShell(git push -f *)",
+      "PowerShell(git push * --force*)",
+      "PowerShell(git push * -f)",
+      "Read(**/.env*)",
+      "Read(**/appsettings.json)",
+      "Read(**/appsettings.*.json)",
+      "Read(**/secrets.json)",
+      "Read(**/credentials*)",
+      "Read(**/.pgpass)",
+      "Read(**/*.tfvars)",
+      "Read(**/*.pfx)",
+      "Read(**/*.p12)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Read(**/*.crt)",
+      "Read(**/*.cer)",
+      "Read(**/*.snk)",
+      "Read(**/id_rsa)",
+      "Read(**/id_ed25519)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "opus",
+  "enableAllProjectMcpServers": true,
+  "statusLine": {
+    "type": "command",
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/Alex/.claude/statusline.ps1"
+  },
+  "language": "english",
+  "alwaysThinkingEnabled": false,
+  "theme": "dark",
+  "remoteControlAtStartup": false
+}

@@ -1,0 +1,11 @@
+# Whitelist: only the config folders are tracked, whatever else lives next to them.
+/*
+!/global/
+!/projects/
+!/README.md
+!/.gitignore
+
+# Never track secrets or machine-local overrides.
+.credentials.json
+.env*
+*.local.json
