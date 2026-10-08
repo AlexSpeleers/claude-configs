@@ -1,12 +1,50 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "model": "opus",
+  "alwaysThinkingEnabled": false, //default unset, so thinking is on for models that support it
+  "effortLevel": "medium", //default depends on model, usually medium
+  "enableAllProjectMcpServers": true, //default unset, so Claude Code asks you to approve each server
+  "remoteControlAtStartup": true, //default unset, so the auto-connect default applies
+  "showClearContextOnPlanAccept": true, /*default false. on finishing Planning adds an option to that menu, 
+  "Yes, clear context and …", that approves the plan, clears context, and starts implementing from the plan alone.*/
+
+  //personalization
+  "language": "english",
+  "theme": "dark",
+  "voice": {
+    "enabled": true,
+    "mode": "tap" //tap hold
+  }, //default unset, so dictation is off; when enabled is true and mode is unset, Claude Code uses "hold"
+  "statusLine": {
+    "type": "command",
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/Alex/.claude/statusline.ps1"
+  },
+
+  //memory
+  "cleanupPeriodDays": 30, //default 30
+  "autoMemoryDirectory": "~/my-memory-dir", // default unset, so Claude Code uses ~/.claude/projects/<project>/memory/
+  "autoMemoryEnabled": true, //default true
+  "plansDirectory": "~/.claude/plans", //default unset, so Claude Code uses ~/.claude/plans
+  
+  //repo
+  "defaultShell": "bash", //for windows default bash->powershell
+  "attribution": { "commit": "", "pr": "" }, //remove AI comments to commits&PR
+  "includeGitInstructions": true, //default true
+  "respectGitignore": true, //default true 
+  
   "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "0",// 0 - agent teams off (use named agents), 1 - on https://code.claude.com/docs/en/agent-teams
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80", //default 83-95% depends on model, value at which call compaction of session
+    "ENABLE_TOOL_SEARCH": "true", //use true to spare tokens/context, so a concrete MCP uploads when needed
     "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5",
     "CLAUDE_CODE_HIDE_ACCOUNT_INFO": "1",
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
-    "CLAUDE_CODE_NO_FLICKER": "1"
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC":"1",
+    "CLAUDE_CODE_NO_FLICKER": "1", //against visual bugs in vs code
+    "BASH_DEFAULT_TIMEOUT_MS":"300000",
+    "HTTPS_PROXY": ""
   },
+
   "permissions": {
     "allow": [
       "Read",
@@ -60,14 +98,15 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
-  "enableAllProjectMcpServers": true,
-  "statusLine": {
-    "type": "command",
-    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/Alex/.claude/statusline.ps1"
-  },
-  "language": "english",
-  "alwaysThinkingEnabled": false,
-  "theme": "dark",
-  "remoteControlAtStartup": false
+
+  //SANDBOX
+  "sandbox": {},
+
+  //HOOKS
+  "hooks": {}
+
+  //MCP
+  
+  //PLUGINS
+
 }

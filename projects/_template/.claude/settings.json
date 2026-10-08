@@ -3,5 +3,10 @@
   "permissions": {
     "allow": [],
     "deny": []
+  },
+    "env": {
+      "CLAUDE_CODE_NEW_INIT": "1"/*Set to 1 to make /init run an interactive setup flow. The flow asks,
+      which files to generate, including CLAUDE.md, skills, and hooks, before exploring the codebase and
+      writing them. Without this variable, /init generates a CLAUDE.md automatically without prompting*/
   }
 }
