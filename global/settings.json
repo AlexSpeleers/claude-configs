@@ -6,7 +6,8 @@
   "enableAllProjectMcpServers": true, //default unset, so Claude Code asks you to approve each server
   "remoteControlAtStartup": true, //default unset, so the auto-connect default applies
   "showClearContextOnPlanAccept": true, /*default false. on finishing Planning adds an option to that menu, 
-  "Yes, clear context and …", that approves the plan, clears context, and starts implementing from the plan alone.*/
+  "Yes, clear context and …", that approves the plan, clears context used for research to build a plan
+  and starts implementing from the plan alone.*/
 
   //personalization
   "language": "english",
@@ -46,6 +47,7 @@
   },
 
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
       "Read",
       "Write",
@@ -56,12 +58,16 @@
       "Bash(ng *)",
       "Bash(pnpm *)",
       "Bash(docker *)",
+      "Bash(* --version*)",
+      "Bash(* --help*)",
       "PowerShell(git *)",
       "PowerShell(dotnet *)",
       "PowerShell(npm *)",
       "PowerShell(ng *)",
       "PowerShell(pnpm *)",
       "PowerShell(docker *)",
+      "PowerShell(* --version*)",
+      "PowerShell(* --help*)",
       "PowerShell(Get-ChildItem *)"
     ],
     "deny": [
@@ -95,8 +101,7 @@
       "Read(**/id_ed25519)",
       "Read(~/.ssh/**)",
       "Read(~/.aws/**)"
-    ],
-    "defaultMode": "auto"
+    ]
   },
 
   //SANDBOX
